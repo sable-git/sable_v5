@@ -1,0 +1,26 @@
+#
+#  files involved in the project
+#
+NETS =  conf_1.exe conf_2.exe conf_3.exe conf_4.exe conf_5.exe
+all: $(NETS)
+conf_1.exe: Main.c conf_1.c
+	$(CC) $(CFLAGS) conf_1.c Main.c
+conf_2.exe: Main.c conf_2.c
+	$(CC) $(CFLAGS) conf_2.c Main.c
+conf_3.exe: Main.c conf_3.c
+	$(CC) $(CFLAGS) conf_3.c Main.c
+conf_4.exe: Main.c conf_4.c
+	$(CC) $(CFLAGS) conf_4.c Main.c
+conf_5.exe: Main.c conf_5.c
+	$(CC) $(CFLAGS) conf_5.c Main.c
+
+clean_obj:
+	del *.obj
+	del *.tds
+
+
+clean: 
+	del $(NETS)
+
+
+
