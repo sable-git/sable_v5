@@ -1,0 +1,48 @@
+#
+#  files involved in the project
+#
+NETS =  Approx_1.exe Approx_el_1.exe Therm_015.exe Therm_115.exe Therm_315.exe \
+	 wxApp_BP_00.exe wxApp_BP_01.exe wxApp_BP_02.exe wxApp_JERP_00.exe \
+	 wxApp_RP_1.exe wxApp_RP_2.exe wxApp_elBP_0.exe wxApp_elBP_1.exe \
+	 wxApp_elRP_0.exe wxApp_elRP_2.exe
+
+all: $(NETS)
+Approx_1.exe: Main_App.c Approx_1.c
+	$(CC) $(CFLAGS) Approx_1.c Main_App.c
+Approx_el_1.exe: Main_App.c Approx_el_1.c
+	$(CC) $(CFLAGS) Approx_el_1.c Main_App.c
+Therm_115.exe: Main_Therm.c Therm_115.c
+	$(CC) $(CFLAGS) Therm_115.c Main_Therm.c
+Therm_015.exe: Main_Therm.c Therm_015.c
+	$(CC) $(CFLAGS) Therm_015.c Main_Therm.c
+Therm_315.exe: Main_Therm.c Therm_315.c
+	$(CC) $(CFLAGS) Therm_315.c Main_Therm.c
+wxApp_BP_00.exe: Main_App.c wxApp_BP_00.c
+	$(CC) $(CFLAGS) wxApp_BP_00.c Main_App.c
+wxApp_BP_01.exe: Main_App.c wxApp_BP_00.c
+	$(CC) $(CFLAGS) wxApp_BP_01.c Main_App.c
+wxApp_BP_02.exe: Main_App.c wxApp_BP_00.c
+	$(CC) $(CFLAGS) wxApp_BP_02.c Main_App.c
+wxApp_JERP_00.exe: Main_App.c wxApp_JERP_00.c
+	$(CC) $(CFLAGS) wxApp_JERP_00.c Main_App.c
+wxApp_RP_1.exe: Main_App.c wxApp_RP_1.c
+	$(CC) $(CFLAGS) wxApp_RP_1.c Main_App.c
+wxApp_RP_2.exe: Main_App.c wxApp_RP_2.c
+	$(CC) $(CFLAGS) wxApp_RP_2.c Main_App.c
+wxApp_elBP_0.exe: Main_App.c wxApp_elBP_0.c
+	$(CC) $(CFLAGS) wxApp_elBP_0.c Main_App.c
+wxApp_elBP_1.exe: Main_App.c wxApp_elBP_1.c
+	$(CC) $(CFLAGS) wxApp_elBP_1.c Main_App.c
+wxApp_elRP_0.exe: Main_App.c wxApp_elRP_0.c
+	$(CC) $(CFLAGS) wxApp_elRP_0.c Main_App.c
+wxApp_elRP_2.exe: Main_App.c wxApp_elRP_2.c
+	$(CC) $(CFLAGS) wxApp_elRP_2.c Main_App.c
+
+clean_obj:
+	del *.obj
+	del *.tds
+
+clean: 
+	del $(NETS)
+
+
