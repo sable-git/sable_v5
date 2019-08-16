@@ -1,0 +1,54 @@
+#
+#  files involved in the project
+#
+NETS =  EL_2_W_S.exe EL_2_S.exe EL_4_W_S.exe EL_4_S.exe EL_6_W_S.exe \
+	ENTR2_W.exe ENTR2.exe ENTR4_W.exe ENTR4.exe ENTR6_W.exe te_1.exe \
+	te_S.exe te_3.exe te3_S.exe te_4.exe te4_S.exe tm_6.exe tm6_S.exe
+all: $(NETS)
+EL_2_W_S.exe: Main.c EL_2_W_S.c
+	$(CC) $(CFLAGS) EL_2_W_S.c Main.c
+EL_2_S.exe: Main.c EL_2_S.c
+	$(CC) $(CFLAGS) EL_2_S.c Main.c
+EL_4_W_S.exe: Main.c EL_4_W_S.c
+	$(CC) $(CFLAGS) EL_4_W_S.c Main.c
+EL_4_S.exe: Main.c EL_4_S.c
+	$(CC) $(CFLAGS) EL_4_S.c Main.c
+EL_6_W_S.exe: Main.c EL_6_W_S.c
+	$(CC) $(CFLAGS) EL_6_W_S.c Main.c
+ENTR2_W.exe: Main.c ENTR2_W.c
+	$(CC) $(CFLAGS) ENTR2_W.c Main.c
+ENTR2.exe: Main.c ENTR2.c
+	$(CC) $(CFLAGS) ENTR2.c Main.c
+ENTR4_W.exe: Main.c ENTR4_W.c
+	$(CC) $(CFLAGS) ENTR4_W.c Main.c
+ENTR4.exe: Main.c ENTR4.c
+	$(CC) $(CFLAGS) ENTR4.c Main.c
+ENTR6_W.exe: Main.c ENTR6_W.c
+	$(CC) $(CFLAGS) ENTR6_W.c Main.c
+te_1.exe: Main.c te_1.c
+	$(CC) $(CFLAGS) te_1.c Main.c
+te_S.exe: Main.c te_S.c
+	$(CC) $(CFLAGS) te_S.c Main.c
+te_3.exe: Main.c te_3.c
+	$(CC) $(CFLAGS) te_3.c Main.c
+te3_S.exe: Main.c te3_S.c
+	$(CC) $(CFLAGS) te3_S.c Main.c
+te_4.exe: Main.c te_4.c
+	$(CC) $(CFLAGS) te_4.c Main.c
+te4_S.exe: Main.c te4_S.c
+	$(CC) $(CFLAGS) te4_S.c Main.c
+tm_6.exe: Main.c tm_6.c
+	$(CC) $(CFLAGS) tm_6.c Main.c
+tm6_S.exe: Main.c tm6_S.c
+	$(CC) $(CFLAGS) tm6_S.c Main.c
+
+clean_obj:
+	del *.obj
+	del *.tds
+
+clean: 
+	del $(NETS)
+
+
+
+

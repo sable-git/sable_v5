@@ -1,0 +1,34 @@
+NETS =  EL2_W.exe EL2.exe EL4_W.exe EL4.exe EL6_W.exe te.exe te3.exe te4.exe tm6.exe 
+
+
+all: $(NETS)
+
+EL2_W.exe: EL2_W.c Main.c
+	$(CC) $(CFLAGS)  EL2_W.c Main.c
+EL2.exe: Main.c EL2.c
+	$(CC) $(CFLAGS) EL2.c Main.c 
+EL4_W.exe: Main.c EL4_W.c
+	$(CC) $(CFLAGS) EL4_W.c Main.c 
+EL4.exe: Main.c EL4.c
+	$(CC) $(CFLAGS) EL4.c Main.c
+EL6_W.exe: Main.c EL6_W.c
+	$(CC) $(CFLAGS) EL6_W.c Main.c 
+te.exe: Main.c te.c
+	$(CC) $(CFLAGS) te.c Main.c 
+te3.exe: Main.c te3.c
+	$(CC) $(CFLAGS) te3.c Main.c 
+te4.exe: Main.c te4.c
+	$(CC) $(CFLAGS) te4.c Main.c 
+tm6.exe: Main.c tm6.c
+	$(CC) $(CFLAGS) tm6.c Main.c 
+
+
+clean_obj:
+	del *.obj
+	del *.tds
+
+clean: 
+	del  $(NETS)
+	
+
+
