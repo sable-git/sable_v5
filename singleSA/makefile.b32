@@ -1,0 +1,35 @@
+#
+#  files involved in the project
+#
+NETS =  Pfam_BP_0_4.exe Pfam_BP_1_2.exe Pfam_BP_2_6.exe Pfam_RPn_0_7.exe Pfam_RPn_1_8.exe Pfam_RPn_2_7.exe Pfam_RPreg_all_0_11.exe\
+	 Pfam_BP_reg_all_0_12.exe Pfam_BP_reg_all_1_10.exe\
+
+
+all: $(NETS)
+Pfam_BP_0_4.exe: Main_App.c Pfam_BP_all_0_4.c
+	$(CC) $(CFLAGS) Main_App.c Pfam_BP_all_0_4.c
+Pfam_BP_1_2.exe: Main_App.c Pfam_BP_all_1_2.c
+	$(CC) $(CFLAGS) Main_App.c  Pfam_BP_all_1_2.c
+Pfam_BP_2_6.exe: Main_App.c Pfam_BP_all_2_6.c
+	$(CC) $(CFLAGS) Main_App.c Pfam_BP_all_2_6.c
+Pfam_RPn_0_7.exe: Main_App.c Pfam_RP_all_0_7.c
+	$(CC) $(CFLAGS) Main_App.c Pfam_RP_all_0_7.c
+Pfam_RPn_1_8.exe: Main_App.c Pfam_RP_all_1_8.c
+	$(CC) $(CFLAGS) Main_App.c Pfam_RP_all_1_8.c
+Pfam_RPn_2_7.exe: Main_App.c Pfam_RP_all_2_7.c
+	$(CC) $(CFLAGS) Main_App.c Pfam_RP_all_2_7.c
+Pfam_RPreg_all_0_11.exe: Main_App.c Pfam_RP_reg_all_0_11.c
+	$(CC) $(CFLAGS) Main_App.c Pfam_RP_reg_all_0_11.c
+Pfam_BP_reg_all_0_12.exe: Main_App.c Pfam_BP_reg_all_0_12.c
+	$(CC) $(CFLAGS) Main_App.c Pfam_BP_reg_all_0_12.c
+Pfam_BP_reg_all_1_10.exe: Main_App.c Pfam_BP_reg_all_1_10.c
+	$(CC) $(CFLAGS) Main_App.c Pfam_BP_reg_all_1_10.c
+
+clean_obj:
+	del *.obj
+	del *.tds
+
+clean: 
+	del $(NETS)
+
+
