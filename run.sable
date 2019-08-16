@@ -1,0 +1,67 @@
+#!/bin/bash
+remDir=$PWD;
+
+# Main SABLE script for UNIX
+# SABLE ver. 4.0
+# One may need to change the default values of the variables set below
+#
+# Paths and directories that need to be set up
+
+export SABLE_DIR="/home/raad/work/sable_v4_distr_new";              #  Sable installation directory
+export BLAST_DIR="/home/raad/work/blast/ncbi-blast-2.9.0+/bin"; #  BLAST+ bin  directory
+export NR_DIR="/home/raad/work/database/swissprot";	    # Nr database directory (must be provided)	
+export PRIMARY_DATABASE="/home/raad/work/sable_v4_distr_new/GI_indexes/pfam_index" #File with the list of GI indexes, if not specified 
+											  #(e.g. when this line is commented) full nr database will be used as primary database
+export SECONDARY_DATABASE="/home/raad/work/sable_v4_distr_new/GI_indexes/swissprot_index"; #File with GI indexes for secondary database (usually indexes from swissprot database)
+
+export OSTYPE=unix
+export SAVE_NR_PSSM="pssm_nr_test" #PSSM will be saved in PSSM_generated
+export SAVE_SWISS_PSSM="pssm_swiss_test" #PSSM will be saved in PSSM_generated
+
+#export READ_NR_PSSM="pssm_nr_test" #PSSM will not be generated but readed from this file
+#export READ_SWISS_PSSM="pssm_swiss_test" #PSSM will not be generated but readed from this file
+
+
+export SABLE_VERSION=sable2 #version of sable to be used
+                            #there are two possible values here: sable1 or sable2
+                            #sable2 is using solvent accessibility
+                            #for secondary structure prediction and usually
+                            #gives somewhat better results, see EVA evaluation
+
+#parameters for sable
+export PBS_JOBID=OUT_SABLE  #name of the temporary directory where all
+			    #files needed by sable will be created
+			    #also it is the root name for final output files (PBS_JOBID.res
+			    #and PBS_JOBID_graph)
+export SABLE_ACTION=SS-SA   #There are three possibilities for this option: 
+			    #SS (secondary structure prediction), 
+			    #SA (solvent accessibility prediction), 
+			    #SS-SA (both secondary structure and solvent accessibility)
+
+export SA_ACTION=wApproximator #type of predictor for solvent accessibility prediction,
+                               #the following values can be used:
+                               #wApproximator, Thermometer, Approximator, SVR. The default value
+                               #is wApproximator. 
+                               #Be aware that solvent accessibility prediction is also used
+                               #in secondary structure prediction for sable2 version.
+export SA_OUT=REAL        #Specify if in *_graph file you want to have relative solvent accessibility or 
+			      #or real one, possible options: REALTIVE, REAL
+
+export SABLE_SA=complex	    # Networks to be used to predict solevnt accessibility
+							#trained on data with complexes (complex)
+							#or trained on sigle chains (single) this option 
+							#is valid only for wApproximator
+
+
+
+
+mkdir $PBS_JOBID
+cp data.seq $PBS_JOBID
+cd $PBS_JOBID
+
+/usr/bin/perl ${SABLE_DIR}/sable.pl
+
+file=${PBS_JOBID}_graph
+cp $file $remDir
+file=${PBS_JOBID}_RES
+cp $file $remDir

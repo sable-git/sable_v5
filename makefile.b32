@@ -1,0 +1,42 @@
+#  Makefile for borland compiler
+#
+all: 
+	cd networks 
+	$(MAKE) -f makefile.b32
+	cd ../networks2 
+	$(MAKE) -f makefile.b32
+	cd ../singleSA 
+	$(MAKE) -f makefile.b32
+	cd ../complexSA 
+	$(MAKE) -f makefile.b32
+	cd ../networksconfSA
+	$(MAKE) -f makefile.b32
+	
+	
+clean_obj:
+	cd networks 
+	make -f makefile.b32 clean_obj
+	cd ../networks2
+	make -f makefile.b32  clean_obj
+	cd ../singleSA
+	make -f makefile.b32 clean_obj
+	cd ../complexSA
+	make -f makefile.b32 clean_obj	
+	cd ../networksconfSA
+	make -f makefile.b32 clean_obj
+
+clean: 
+	cd networks 
+	make -f makefile.b32 clean
+	cd ../networks2
+	make -f makefile.b32  clean
+	cd ../singleSA
+	make -f makefile.b32 clean
+	cd ../complexSA
+	make -f makefile.b32 clean	
+	cd ../networksconfSA
+	make -f makefile.b32 clean
+
+
+	
+
